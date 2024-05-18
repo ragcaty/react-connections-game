@@ -6,12 +6,13 @@ import GameLostModal from "../modals/GameLostModal";
 import GameWonModal from "../modals/GameWonModal";
 
 import { Separator } from "../ui/separator";
+import { Button } from "../ui/button";
+import { Repeat2 } from "lucide-react";
 import ConfettiExplosion from "react-confetti-explosion";
 
 import { PuzzleDataContext } from "../../providers/PuzzleDataProvider";
 import { GameStatusContext } from "../../providers/GameStatusProvider";
 import GameControlButtonsPanel from "../GameControlButtonsPanel";
-
 import ViewResultsModal from "../modals/ViewResultsModal";
 
 function Game() {
@@ -26,6 +27,11 @@ function Game() {
   const [isEndGameModalOpen, setisEndGameModalOpen] = React.useState(false);
   const [gridShake, setGridShake] = React.useState(false);
   const [showConfetti, setShowConfetti] = React.useState(false);
+
+	function resetGame() {
+		localStorage.clear();
+		window.location.reload(false);
+	}
 
   // use effect to update Game Grid after a row has been correctly solved
   React.useEffect(() => {
@@ -104,7 +110,12 @@ function Game() {
             />
           </>
         ) : (
-          <ViewResultsModal />
+          <><ViewResultsModal />
+	  <Button onClick={() => resetGame()}>
+		<Repeat2 className="h-4 w-4 mr-2" strokeWidth={1} />
+		<p className="select-none">Reset Game</p>
+		</Button>
+		</>
         )}
       </div>
     </>

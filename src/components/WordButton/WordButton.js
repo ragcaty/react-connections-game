@@ -1,5 +1,5 @@
 import React from "react";
-import * as styles from "./WordButton.module.css";
+import styles from "./WordButton.module.css";
 import { Toggle } from "../ui/toggle";
 
 import { GameStatusContext } from "../../providers/GameStatusProvider";

@@ -2,7 +2,7 @@ import React from "react";
 
 import WordButton from "../WordButton";
 
-import * as styles from "./GameGrid.module.css";
+import styles from "./GameGrid.module.css";
 
 import { useSpring, animated } from "react-spring";
 import { PuzzleDataContext } from "../../providers/PuzzleDataProvider";
